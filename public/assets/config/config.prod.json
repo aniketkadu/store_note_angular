@@ -1,0 +1,6 @@
+{
+    "apiUrl": "https://prod.api.example.com",
+    "featureXEnabled": false,
+    "featureYEnabled": true
+  }
+  
