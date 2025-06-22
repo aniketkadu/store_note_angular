@@ -1,0 +1,6 @@
+
+
+<div style="display: flex; width: 100%;">
+    <app-customer-list (customerSelected)="onCustomerSelected($event)" style="width: 30%;"></app-customer-list>
+    <app-customer-details [customer]="selectedCustomer" style="flex: 1; padding-left: 20px;"></app-customer-details>
+  </div>

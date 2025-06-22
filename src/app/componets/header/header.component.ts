@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -9,5 +10,11 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  /**
+   *
+   */
+  isLoggedIn = false;
+  constructor(public loginService: LoginService) {
+  }
 
 }

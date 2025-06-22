@@ -1,0 +1,49 @@
+<div *ngIf="customer; else noCustomer">
+    <h2>{{ customer.name }}</h2>
+    <sub class="d-flex-sub">
+      <span><strong>Pending Amount:</strong> ${{ customer.total_pending_amount }}</span>
+      <span><strong>Email:</strong> {{ customer.email }}</span>
+      <span><strong>Phone:</strong> {{ customer.phone }}</span>
+    </sub>
+      <h3>Pending Payments</h3>
+   
+    
+    <!-- <ul>
+      <li *ngFor="let payment of customer.payments">{{ payment }}</li>
+    </ul> -->
+    <div class="card-container">
+      <mat-card class="purchase-card" *ngFor="let item of dataSource">
+        <mat-card-header>
+          <mat-card-title>{{ item.item_name }}</mat-card-title>
+          <mat-card-subtitle>{{ item.purchase_date | date:'mediumDate' }}</mat-card-subtitle>
+        </mat-card-header>
+    
+        <mat-card-content>
+          <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+          <p><strong>Price:</strong> ${{ item.price }}</p>
+          <p><strong>Status:</strong> 
+            <span [ngClass]="{
+              'status-paid': item.payment_status === 'paid',
+              'status-pending': item.payment_status === 'pending'
+            }">{{ item.payment_status | titlecase }}</span>
+          </p>
+        </mat-card-content>
+    
+        <mat-card-actions align="end">
+          <button mat-icon-button color="primary" (click)="edit(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="delete(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    
+  </div>
+  
+  <ng-template #noCustomer>
+    <p>Select a customer to see details.</p>
+  </ng-template>
+
+  

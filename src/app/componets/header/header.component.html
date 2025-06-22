@@ -1,8 +1,13 @@
 <header class="app-header">
-    <div class="logo heading-caveat gradient-text">Store Note</div>
-    <nav class="nav-links">
-      <a routerLink="/login" routerLinkActive="active">Login</a>
-      <a routerLink="/about" routerLinkActive="active">Sign Up</a>
-      <a routerLink="/contact" routerLinkActive="active">About</a>
-    </nav>
-  </header>
+  <div class="logo heading-caveat gradient-text">Store Note</div>
+  <nav class="nav-links">
+    @if(loginService.isLoggedIn() === true) {
+    <strong>Hello User!</strong>
+    <a routerLink="#" routerLinkActive="active" (click)="loginService.logout()">Logout</a>
+    } @else {
+    <!-- <a routerLink="/" routerLinkActive="active">Login</a> -->
+    <a routerLink="/about" routerLinkActive="active">Sign Up</a>
+    <a routerLink="/contact" routerLinkActive="active">About</a>
+    }
+  </nav>
+</header>

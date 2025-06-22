@@ -3,16 +3,23 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SharedMaterialModule } from '../../shared/shared-material/shared-material.module';
 import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login.service';
+import { NotificationService } from '../../services/notification.service';
+import { HeaderComponent } from '../header/header.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, SharedMaterialModule, CommonModule],
+  imports: [ReactiveFormsModule, SharedMaterialModule, CommonModule,HeaderComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private fb: FormBuilder, private loginService: LoginService) {}
+  constructor(private fb: FormBuilder, private loginService: LoginService, private toastService: NotificationService,private router:Router) {
+    if(this.loginService.isLoggedIn()) {
+      this.router.navigate(['/home']);
+    }
+  }
 
   loginForm = this.fb.group({
     username: ['', [Validators.required]],
@@ -24,10 +31,12 @@ export class LoginComponent {
       console.log('Login data:', this.loginForm.value);
       this.loginService.login(this.loginForm.value).subscribe({
         next: () => {
-          alert('Welcome!');
+          this.toastService.success('Welcome!','Hi');
+          this.loginService.setloginStatus('User');
+          this.router.navigate(['/home'])
         },
         error: (err) => {
-          alert(err.message);
+          this.toastService.error(err.message);
         },
       });
       // call API or auth service here

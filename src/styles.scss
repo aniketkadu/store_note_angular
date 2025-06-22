@@ -36,8 +36,8 @@ $aj_store_note-theme: mat.define-theme((
 // @include mat.color-variants-backwards-compatibility($aj_store_note-theme);
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; padding: 0; }
+body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 
 
 
@@ -46,5 +46,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-optical-sizing: auto;
   font-weight: 400; /* or 700, etc. */
   font-style: normal;
+}
+
+
+.d-flex {
+  display: flex;
 }
 

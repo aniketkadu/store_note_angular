@@ -1,0 +1,10 @@
+<div class="customer-list">
+   @if(customers.length > 0) {
+    <div *ngFor="let customer of customers" (click)="selectCustomer(customer)" class="customer-item">
+      {{ customer.name }} – ${{ customer.total_pending_amount }}
+    </div>
+   } @else {
+    <p>No customer found!</p>
+   }
+   </div>
+ 

@@ -7,7 +7,8 @@ export const APP_CONSTANTS = {
       LOGIN: '/login',
       REGISTER: '/auth/register',
       USERS: '/users',
-      PROFILE: '/users/profile'
+      PROFILE: '/users/profile',
+      CUSTOMERS:'/customers'
     },
   
     MESSAGES: {

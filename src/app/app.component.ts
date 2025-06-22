@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedMaterialModule } from './shared/shared-material/shared-material.module';
-import { HeaderComponent } from './componets/header/header.component';
 import { AppconfigService } from './services/appconfig.service';
 import { HttpClient } from '@angular/common/http';
+import { LoginComponent } from './componets/login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule,SharedMaterialModule,HeaderComponent],
+  imports: [RouterModule,SharedMaterialModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -30,14 +30,7 @@ export class AppComponent {
     this.featureY = this.configService.isFeatureYEnabled();
     console.log('apiUrl', this.apiUrl);
     console.log('env', this.env);
-    this.getCusom();
     
   }
 
-  getCusom() {
-this.http.get(`${this.apiUrl}customers`).subscribe(res => {
-  console.log('test',res);
-  
-})
-  }
 }

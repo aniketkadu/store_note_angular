@@ -13,11 +13,11 @@ export class HttpService {
    }
 
   get<T>(endpoint: string, params?: HttpParams): Observable<T> {
-    return this.http.get<T>(`${this.baseUrl}${endpoint}`, { params });
+    return this.http.get<T>(`${this.baseUrl}${endpoint}`, { params }).pipe(catchError(err => this.errorHandler(err)));
   }
 
   post<T>(endpoint: string, body: any, headers?: HttpHeaders): Observable<T> {
-    return this.http.post<T>(`${this.baseUrl}${endpoint}`, body, { headers }).pipe(catchError(err => this.errorHandler(err)));;
+    return this.http.post<T>(`${this.baseUrl}${endpoint}`, body, { headers }).pipe(catchError(err => this.errorHandler(err)));
   }
 
   put<T>(endpoint: string, body: any, headers?: HttpHeaders): Observable<T> {
