@@ -3,7 +3,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CustomerService } from '../../../../services/customer.service';
 
 export interface Customer {
-  id: number;
+  customer_id: number;
   name: string;
   total_pending_amount: number;
   email: string;

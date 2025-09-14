@@ -8,7 +8,8 @@ export const APP_CONSTANTS = {
       REGISTER: '/auth/register',
       USERS: '/users',
       PROFILE: '/users/profile',
-      CUSTOMERS:'/customers'
+      CUSTOMERS:'/customers',
+      PURCHASE:'/purchase'
     },
   
     MESSAGES: {

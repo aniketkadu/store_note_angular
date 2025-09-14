@@ -5,7 +5,21 @@
       <span><strong>Email:</strong> {{ customer.email }}</span>
       <span><strong>Phone:</strong> {{ customer.phone }}</span>
     </sub>
+    <div class="d-flex-sub">
       <h3>Pending Payments</h3>
+       <mat-button-toggle-group
+    name="favoriteColor"
+    aria-label="Favorite Color"
+    (change)="filterChange($event)"
+    class="purchase-filter"
+    [formControl]="toggleControl"
+  >
+  <mat-button-toggle [value]="paymentStatus.pending">Pending</mat-button-toggle>
+    <mat-button-toggle [value]="paymentStatus.completed">Completed</mat-button-toggle>
+    <mat-button-toggle [value]="paymentStatus.all">All</mat-button-toggle>
+  </mat-button-toggle-group>
+      
+</div>
    
     
     <!-- <ul>
@@ -23,7 +37,7 @@
           <p><strong>Price:</strong> ${{ item.price }}</p>
           <p><strong>Status:</strong> 
             <span [ngClass]="{
-              'status-paid': item.payment_status === 'paid',
+              'status-paid': item.payment_status === 'completed',
               'status-pending': item.payment_status === 'pending'
             }">{{ item.payment_status | titlecase }}</span>
           </p>
