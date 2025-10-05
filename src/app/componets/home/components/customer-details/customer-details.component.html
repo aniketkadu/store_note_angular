@@ -1,5 +1,10 @@
 <div *ngIf="customer; else noCustomer">
+  
+   <div class="fx-space-bet">
     <h2>{{ customer.name }}</h2>
+    <!-- <mat-icon title="Add Items" [routerLink]="['new-purchase']" [queryParams]="{customerData:getStringiFy(customer)}">add_circle</mat-icon> -->
+      <button mat-raised-button  title="Add Items" [routerLink]="['new-purchase']" [queryParams]="{customerData:getStringiFy(customer)}" class="bg-gradient" type="button">Add Items</button>
+  </div> 
     <sub class="d-flex-sub">
       <span><strong>Pending Amount:</strong> ${{ customer.total_pending_amount }}</span>
       <span><strong>Email:</strong> {{ customer.email }}</span>

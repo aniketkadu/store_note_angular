@@ -9,7 +9,9 @@ export const APP_CONSTANTS = {
       USERS: '/users',
       PROFILE: '/users/profile',
       CUSTOMERS:'/customers',
-      PURCHASE:'/purchase'
+      PURCHASE:'/purchase',
+      CREATEPURCHASES:'/purchase/create-purchases',
+
     },
   
     MESSAGES: {

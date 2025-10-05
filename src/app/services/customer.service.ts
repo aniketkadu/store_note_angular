@@ -16,4 +16,7 @@ readonly constants = APP_CONSTANTS;
   getPurchaseByCustomer(data:{customer_id:number, payment_status:string}){
    return this.httpService.post(this.constants.API_ENDPOINTS.PURCHASE,data);
   }
+  createPurchase(data:any){
+   return this.httpService.post(this.constants.API_ENDPOINTS.CREATEPURCHASES,data);
+  }
 }

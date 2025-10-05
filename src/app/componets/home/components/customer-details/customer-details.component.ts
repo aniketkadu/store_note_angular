@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { SharedMaterialModule } from '../../../../shared/shared-material/shared-material.module';
 import { CustomerService } from '../../../../services/customer.service';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-customer-details',
   standalone: true,
-  imports: [CommonModule,SharedMaterialModule,FormsModule,ReactiveFormsModule ],
+  imports: [CommonModule, SharedMaterialModule, FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './customer-details.component.html',
   styleUrl: './customer-details.component.scss'
 })
@@ -24,24 +25,13 @@ export class CustomerDetailsComponent implements OnInit,OnChanges{
 
   }
   ngOnChanges(changes: SimpleChanges): void {
-   this.getPurchases();
+if(!changes['customer'].firstChange) {
+  this.getPurchases();
+
+}
   }
 
-  dataSource = [
-    {
-      item_name: 'Wireless Mouse',
-      quantity: 2,
-      price: '25.99',
-      purchase_date: '2025-04-19T17:41:04.000Z',
-      payment_status: 'pending'
-    },
-    {
-      item_name: 'USB Keyboard',
-      quantity: 1,
-      price: '45.00',
-      purchase_date: '2025-06-20T10:00:00.000Z',
-      payment_status: 'paid'
-    }
+  dataSource:any[] = [
   ];
 
   edit(item: any) {
@@ -60,6 +50,10 @@ export class CustomerDetailsComponent implements OnInit,OnChanges{
    this.toggleControl.valueChanges.subscribe(res=> {
     this.getPurchases();
    })
+  }
+
+  getStringiFy(data:any) {
+    return JSON.stringify(data)
   }
 
   getPurchases() {

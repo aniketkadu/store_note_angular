@@ -1,11 +1,10 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <div class="login-container">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
         <input matInput formControlName="username" type="text" />
         <mat-error *ngIf="loginForm.get('username')?.hasError('required')">Username is required</mat-error>
-        <!-- <mat-error *ngIf="loginForm.get('username')?.hasError('email')">Enter a valid email</mat-error> -->
       </mat-form-field>
   
       <mat-form-field appearance="outline">
@@ -16,5 +15,55 @@
   
       <button mat-raised-button color="primary" type="submit">Login</button>
     </form>
-  </div>
+  </div> -->
+
+  <div class="landing-wrap">
+  <!-- Navbar -->
+   
+  <nav class="nav-bar">
+  <div class="logo heading-caveat">Store Note</div>
+
+    <div class="nav-links">
+      <a href="#">Log In</a>
+      <span>or</span>
+      <a href="#" class="highlight">Join Now</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1>
+        <span class="bold">Smartly store,</span>
+        <span class="accent">Seamlessly note.</span>
+      </h1>
+      <button class="cta">Sign Up</button>
+    </div>
+
+    <div class="hero-right">
+      <!-- <div class="circle">
+        <img src="assets/clean-icon.svg" alt="Cleaning Icon" />
+      </div>
+      <h2>Dirt Clean</h2>
+      <p>Lose the mop and we'll clean the slop</p> -->
+
+      <div class="login-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" type="text" />
+        <mat-error *ngIf="loginForm.get('username')?.hasError('required')">Username is required</mat-error>
+      </mat-form-field>
   
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" />
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button  type="submit">Login</button>
+    </form>
+  </div>
+    </div>
+  </section>
+</div>
