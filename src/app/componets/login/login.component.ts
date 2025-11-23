@@ -5,12 +5,12 @@ import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login.service';
 import { NotificationService } from '../../services/notification.service';
 import { HeaderComponent } from '../header/header.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, SharedMaterialModule, CommonModule,HeaderComponent],
+  imports: [ReactiveFormsModule, SharedMaterialModule, CommonModule, HeaderComponent, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

@@ -1,0 +1,23 @@
+.register-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+button {
+  background: #1976d2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.message {
+  margin-top: 15px;
+  font-weight: bold;
+}

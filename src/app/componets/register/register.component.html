@@ -1,0 +1,39 @@
+<div class="register-container">
+  <h2>User Registration</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+
+    <label>Username *</label>
+    <input formControlName="username">
+
+    <label>Email *</label>
+    <input formControlName="email" type="email">
+
+    <label>Password *</label>
+    <input formControlName="password" type="password">
+
+    <label>First Name</label>
+    <input formControlName="first_name">
+
+    <label>Last Name</label>
+    <input formControlName="last_name">
+
+    <label>Date of Birth</label>
+    <input formControlName="date_of_birth" type="date">
+
+    <label>Profile Picture URL</label>
+    <input formControlName="profile_picture">
+
+    <label>Status</label>
+    <select formControlName="status">
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+    </select>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? "Saving..." : "Register" }}
+    </button>
+  </form>
+
+  <p class="message">{{ message }}</p>
+</div>
