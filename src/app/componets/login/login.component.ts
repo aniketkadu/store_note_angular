@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SharedMaterialModule } from '../../shared/shared-material/shared-material.module';
 import { CommonModule } from '@angular/common';
@@ -14,11 +14,15 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {
+export class LoginComponent implements AfterViewInit{
+  @ViewChild('usernameField',{static:true}) usernameField!:ElementRef
   constructor(private fb: FormBuilder, private loginService: LoginService, private toastService: NotificationService,private router:Router) {
     if(this.loginService.isLoggedIn()) {
       this.router.navigate(['/home']);
     }
+  }
+  ngAfterViewInit(): void {
+    this.usernameField.nativeElement.focus();
   }
 
   loginForm = this.fb.group({

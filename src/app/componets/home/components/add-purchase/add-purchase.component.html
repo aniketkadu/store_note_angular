@@ -2,13 +2,7 @@
   <h2>Add Purchase</h2>
 
   <form [formGroup]="purchaseForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label>Customer ID</label>
-      <input type="text" formControlName="customer_id" placeholder="Enter Customer ID" />
-      <small class="error" *ngIf="purchaseForm.get('customer_id')?.touched && purchaseForm.get('customer_id')?.invalid">
-        Customer ID is required.
-      </small>
-    </div>
+    
 
     <div formArrayName="items" class="item-list">
       <h3>Items</h3>

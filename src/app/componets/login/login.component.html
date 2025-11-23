@@ -34,8 +34,8 @@
   <section class="hero">
     <div class="hero-left">
       <h1>
-        <span class="bold">Smartly store,</span>
-        <span class="accent">Seamlessly note.</span>
+        <span class="bold">Smartly Store,</span>
+        <span class="accent">Seamlessly Note.</span>
       </h1>
       <button class="cta">Sign Up</button>
     </div>
@@ -51,7 +51,7 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
-        <input matInput formControlName="username" type="text" />
+        <input matInput formControlName="username" type="text" #usernameField  />
         <mat-error *ngIf="loginForm.get('username')?.hasError('required')">Username is required</mat-error>
       </mat-form-field>
   

@@ -1,5 +1,7 @@
 {
-    "apiUrl": "http://localhost:3000",
+     
+    "apiUrl": "https://storenotenjexpress-production.up.railway.app",
+    "apiUrl1": "http://localhost:3001",
     "featureXEnabled": true,
     "featureYEnabled": false
   }

@@ -31,7 +31,7 @@ export class AddPurchaseComponent {
 
   ngOnInit(): void {
     this.purchaseForm = this.fb.group({
-      customer_id: [{value:this.customerData?.customer_id,disabled:true}, [Validators.required]],
+      customer_id: [this.customerData?.customer_id],
       items: this.fb.array([this.createItem()])
     });
   }
