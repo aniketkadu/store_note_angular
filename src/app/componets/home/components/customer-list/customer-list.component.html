@@ -1,4 +1,4 @@
-
+   <button mat-raised-button  title="Add Customer" (click)="openAddCustomerDialog()" class="bg-gradient cust-btn" type="button">Add Customer</button>
 <div class="customer-list">
    @if(customers.length > 0) {
     <div *ngFor="let customer of customers" (click)="selectCustomer(customer)" class="customer-item">

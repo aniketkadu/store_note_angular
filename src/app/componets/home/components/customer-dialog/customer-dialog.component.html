@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Add Customer</h2>
+
+<div mat-dialog-content>
+  <form [formGroup]="customerForm" class="form-container">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Customer Name</mat-label>
+      <input matInput formControlName="cust_name" />
+      <mat-error *ngIf="customerForm.get('cust_name')?.invalid">
+        Name is required (min 2 chars)
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="customerForm.get('email')?.invalid">
+        Invalid email
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" maxlength="10" />
+      <mat-error *ngIf="customerForm.get('phone')?.invalid">
+        Enter valid 10-digit phone
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="active">Active</mat-option>
+        <mat-option value="inactive">Inactive</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-flat-button color="primary" (click)="submit()" [disabled]="loading">
+    {{ loading ? 'Saving...' : 'Save' }}
+  </button>
+</div>

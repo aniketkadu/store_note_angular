@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CustomerService } from '../../../../services/customer.service';
+import { CustomerDialogComponent } from '../customer-dialog/customer-dialog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { SharedMaterialModule } from '../../../../shared/shared-material/shared-material.module';
 
 export interface Customer {
   customer_id: number;
@@ -14,7 +17,7 @@ export interface Customer {
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MatDialogModule,SharedMaterialModule],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
 })
@@ -25,7 +28,7 @@ export class CustomerListComponent {
   customers: Customer[] = [
   ];
 
-  constructor(private custService:CustomerService){
+  constructor(private custService:CustomerService, private dialog:MatDialog){
 
   }
 
@@ -34,25 +37,29 @@ export class CustomerListComponent {
   }
 
   ngOnInit() {
-    this.custService.getCustomers().subscribe((res:any) => {
+   this.getCustomer();
+  }
+
+  getCustomer() {
+     this.custService.getCustomers().subscribe((res:any) => {
       this.customers = res.data || []
       console.log('res',res.data);
     })
   }
 
+  openAddCustomerDialog() {
+  const dialogRef = this.dialog.open(CustomerDialogComponent, {
+    width: '450px'
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.getCustomer();
+
+    }
+  });
+
+}
 }
 
 
-export const resp = {
-  "status": "success",
-  "message": "User details fetched successfully.",
-  "data": [
-      {
-          "customer_id": 1,
-          "name": "Akhil Nayak",
-          "email": "akhil@example.com",
-          "phone": "9876676767",
-          "total_pending_amount": "141.93"
-      }
-  ]
-}

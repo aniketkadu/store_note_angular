@@ -1,0 +1,14 @@
+.form-container {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+mat-dialog-content {
+  padding-top: 10px;
+}
+

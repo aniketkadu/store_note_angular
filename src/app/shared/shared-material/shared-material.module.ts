@@ -7,6 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialogActions, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
 
 const materialModules:Array<Type<unknown>> = [
   MatButtonModule,
@@ -16,7 +18,13 @@ const materialModules:Array<Type<unknown>> = [
   MatTableModule,
   MatIconModule,
   MatCardModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatInputModule,
+  MatSelectModule,
+  MatButtonModule,
+  MatDialogActions,
+  MatDialogContent,
+  MatDialogTitle,
   
 ]
 
